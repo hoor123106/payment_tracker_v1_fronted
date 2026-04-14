@@ -80,7 +80,7 @@ export default function Home() {
         <div className="max-w-xl mx-auto">
           <div className="p-8 backdrop-blur-xl bg-neutral-900/50 rounded-3xl border border-white/5 shadow-2xl transition-all">
             <div className="space-y-6">
-              
+
               {/* File Drop Area */}
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
@@ -117,8 +117,8 @@ export default function Home() {
                 onClick={handleUpload}
                 disabled={status === "uploading" || !file}
                 className={`relative w-full py-4 px-6 rounded-xl font-bold text-white tracking-wide overflow-hidden transition-all duration-300
-                  ${status === "uploading" || !file 
-                    ? "bg-neutral-800 text-neutral-500 cursor-not-allowed border border-neutral-700" 
+                  ${status === "uploading" || !file
+                    ? "bg-neutral-800 text-neutral-500 cursor-not-allowed border border-neutral-700"
                     : "bg-cyan-600 hover:bg-cyan-500 active:scale-[0.98] border border-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.3)] hover:shadow-[0_0_25px_rgba(6,182,212,0.5)]"
                   }`}
               >
@@ -140,8 +140,8 @@ export default function Home() {
                   ${status === "uploading" ? "bg-blue-500/10 text-blue-400 border-blue-500/20" : ""}
                 `}>
                   <p className="flex items-center justify-center space-x-2">
-                    {status === "success" && <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"/></svg>}
-                    {status === "error" && <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>}
+                    {status === "success" && <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>}
+                    {status === "error" && <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>}
                     <span>{message || (status === "uploading" ? "Establishing secure connection to APIs..." : "")}</span>
                   </p>
                 </div>
@@ -196,7 +196,7 @@ export default function Home() {
                             £{parseFloat(row.Amount || 0).toLocaleString('en-GB', { minimumFractionDigits: 2 })}
                           </div>
                           {parseFloat(row.HB || 0) > 0 && (
-                             <div className="text-xs text-neutral-500 mt-1">+ £{parseFloat(row.HB || 0).toLocaleString()} HB</div>
+                            <div className="text-xs text-neutral-500 mt-1">+ £{parseFloat(row.HB || 0).toLocaleString()} HB</div>
                           )}
                         </td>
                       </tr>
@@ -205,7 +205,7 @@ export default function Home() {
                 </table>
               </div>
             </div>
-            
+
           </div>
         )}
       </div>
