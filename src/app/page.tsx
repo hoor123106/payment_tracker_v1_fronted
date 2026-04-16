@@ -171,13 +171,14 @@ export default function Home() {
                     <tr>
                       <th className="px-6 py-5 font-semibold">User Details</th>
                       <th className="px-6 py-5 font-semibold">Address Target</th>
+                      <th className="px-6 py-5 font-semibold hidden md:table-cell">Sync Status</th>
                       <th className="px-6 py-5 font-semibold hidden md:table-cell">Days Tracked</th>
                       <th className="px-6 py-5 font-semibold text-right">Extracted Payment</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-neutral-800/80">
                     {syncData.map((row, idx) => (
-                      <tr key={idx} className="hover:bg-neutral-800/40 transition-colors">
+                      <tr key={idx} className={`transition-colors ${row.alreadySynced ? 'bg-amber-950/10 opacity-70' : 'hover:bg-neutral-800/40'}`}>
                         <td className="px-6 py-4">
                           <div className="font-medium text-neutral-200">{row.Name || "Unknown"}</div>
                           <div className="text-xs text-neutral-500 mt-1">Claim: {row.Claim || "N/A"}</div>
@@ -188,12 +189,23 @@ export default function Home() {
                           </div>
                         </td>
                         <td className="px-6 py-4 hidden md:table-cell">
+                          {row.alreadySynced ? (
+                             <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-amber-500/10 text-amber-500 border border-amber-500/20">
+                               Already Tracked
+                             </span>
+                          ) : (
+                             <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-emerald-500/10 text-emerald-500 border border-emerald-500/20">
+                               Ready
+                             </span>
+                          )}
+                        </td>
+                        <td className="px-6 py-4 hidden md:table-cell">
                           <div className="inline-flex items-center px-2.5 py-1 rounded-md bg-neutral-800/80 text-neutral-300 text-xs font-medium border border-neutral-700/50">
                             {row["Period In Days"] || 0} D
                           </div>
                         </td>
                         <td className="px-6 py-4 text-right">
-                          <div className="font-bold text-emerald-400 text-base">
+                          <div className={`font-bold text-base ${row.alreadySynced ? 'text-neutral-500 line-through' : 'text-emerald-400'}`}>
                             £{parseFloat(row.Amount || 0).toLocaleString('en-GB', { minimumFractionDigits: 2 })}
                           </div>
                           {parseFloat(row.HB || 0) > 0 && (
