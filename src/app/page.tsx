@@ -34,6 +34,9 @@ export default function Home() {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
       const response = await fetch(`${apiUrl}/api/upload`, {
         method: "POST",
+        headers: {
+          "ngrok-skip-browser-warning": "69420", // Bypasses the ngrok warning page
+        },
         body: formData,
       });
 
